@@ -50,6 +50,25 @@ const signin = async (req, res) => {
         console.log(err)
     }
 };
+const todos = [];
+const todo = async (req, res) => {
+    // const { taskname, status,tag } = req.body;
+
+    try {
+       const { todo } = req.body;
+       console.log(todo);
+
+       todos.forEach((todo) => {
+         count = Math.max(count, todo.id);
+       });
+
+    //    todos.push(data);
+       return res.send("todo added");
+        
+    } catch (err) {
+        console.log(err)
+    }
+};
 
 
-module.exports = {signin,signup};
+module.exports = {signin,signup,todo};

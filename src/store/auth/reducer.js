@@ -20,7 +20,7 @@ export const reducer = (state = init, {type, payload}) => {
                 loading: false,
                 error: false,
                 token: payload.token,
-                // username: payload.user.username,
+                username: payload.user.username,
                 email: payload.user.email
             }
         case LOGIN_ERROR :
