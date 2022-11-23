@@ -40,7 +40,7 @@ const handlelogin = () => {
     url: "http://localhost:3070/users/signup",
     data: loginData,
   }).then((res) => {
-    dispatch(sucessLogin(res.data.token));
+    dispatch(sucessLogin(res.data));
   });
 };
 if (token) {

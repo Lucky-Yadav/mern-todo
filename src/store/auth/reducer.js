@@ -13,13 +13,14 @@ export const reducer = (state = init, {type, payload}) => {
                 ...state,
                 loading: true
             }
-        case LOGIN_SUCCESS :
+        case LOGIN_SUCCESS:
+            console.log(payload);
             return {
                 ...state,
                 loading: false,
                 error: false,
                 token: payload.token,
-                username: payload.user.username,
+                // username: payload.user.username,
                 email: payload.user.email
             }
         case LOGIN_ERROR :
