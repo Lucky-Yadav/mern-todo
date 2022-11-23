@@ -86,6 +86,22 @@ const todoget = (req, res) => {
        res.send("internal error ");
      }
 }
+const tododelete = (req, res) => {
+    const { id } = req.params;
+
+    let index = null;
+    todos.forEach((todo, i) => {
+      if (todo.id == id) {
+        index = i;
+      } else {
+        todos.splice(index, 1);
+        return res.send(`deleted ${index}`);
+      }
+    });
+    if (index == null) {
+      return res.status(404).send("data doesn't exist");
+    }
+}
 
 
-module.exports = {signin,signup,todopost,todoget};
+module.exports = {signin,signup,todoget,todopost,tododelete};
