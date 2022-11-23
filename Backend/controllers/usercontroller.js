@@ -54,19 +54,19 @@ const todos = [];
 const todopost = (req, res) => {
     // const { taskname, status,tag } = req.body;
 
-    try {
-      const { todo } = req.body;
-      const { task } = todo;
-      console.log(task);
+    try { 
+        
+      const { name,status,tag } = req.body; 
+      console.log(name);
 
       let count = 0;
-      todos.forEach((todo) => {
-        count = Math.max(count, todo.id);
+      todos.forEach((tododata) => {
+        count = Math.max(count, tododata.id);
       });
 
       let data = {
         id: count + 1,
-        task,
+        name,
         createdAt: new Date(),
       };
       todos.push(data);
@@ -92,11 +92,10 @@ const tododelete = (req, res) => {
     let index = null;
     todos.forEach((todo, i) => {
       if (todo.id == id) {
-        index = i;
-      } else {
-        todos.splice(index, 1);
-        return res.send(`deleted ${index}`);
-      }
+          index = i;
+          todos.splice(index, 1);
+        return res.send(`deleted ${index + 1} element`);
+      } 
     });
     if (index == null) {
       return res.status(404).send("data doesn't exist");

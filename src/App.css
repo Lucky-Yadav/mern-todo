@@ -16,3 +16,6 @@ a {
   display: flex;
   gap: 20px;
 }
+div {
+  padding: 5px;
+}
