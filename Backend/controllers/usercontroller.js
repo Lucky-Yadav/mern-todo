@@ -51,24 +51,41 @@ const signin = async (req, res) => {
     }
 };
 const todos = [];
-const todo = async (req, res) => {
+const todopost = (req, res) => {
     // const { taskname, status,tag } = req.body;
 
     try {
-       const { todo } = req.body;
-       console.log(todo);
+      const { todo } = req.body;
+      const { task } = todo;
+      console.log(task);
 
-       todos.forEach((todo) => {
-         count = Math.max(count, todo.id);
-       });
+      let count = 0;
+      todos.forEach((todo) => {
+        count = Math.max(count, todo.id);
+      });
 
-    //    todos.push(data);
-       return res.send("todo added");
+      let data = {
+        id: count + 1,
+        task,
+        createdAt: new Date(),
+      };
+      todos.push(data);
+      return res.send("todo added");
         
     } catch (err) {
         console.log(err)
     }
 };
+const todoget = (req, res) => {
+     try {
+       return res.send({
+         todos,
+       });
+     } catch (error) {
+       console.error(error.message);
+       res.send("internal error ");
+     }
+}
 
 
-module.exports = {signin,signup,todo};
+module.exports = {signin,signup,todopost,todoget};
