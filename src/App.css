@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.div {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+.registration {
+  display: flex;
+  gap: 20px;
+}
