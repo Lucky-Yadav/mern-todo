@@ -54,19 +54,20 @@ const todos = [];
 const todopost = (req, res) => {
     // const { taskname, status,tag } = req.body;
 
-    try { 
+    try {
+      const { todo } = req.body;
+        const { task } = todo;
         
-      const { name,status,tag } = req.body; 
-      console.log(name);
+      console.log(task);
 
       let count = 0;
-      todos.forEach((tododata) => {
-        count = Math.max(count, tododata.id);
+      todos.forEach((todo) => {
+        count = Math.max(count, todo.id);
       });
 
       let data = {
         id: count + 1,
-        name,
+        task,
         createdAt: new Date(),
       };
       todos.push(data);
